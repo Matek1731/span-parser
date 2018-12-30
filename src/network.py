@@ -155,7 +155,8 @@ class Network(object):
 
         self.model = dynet.Model()
 
-        self.trainer = dynet.AdadeltaTrainer(self.model, eps=1e-7, rho=0.99)
+        #self.trainer = dynet.AdadeltaTrainer(self.model, eps=1e-7, rho=0.99)
+        self.trainer = dynet.SimpleSGDTrainer(self.model, learning_rate = 0.05)
         random.seed(1)
 
         self.activation = dynet.rectify
