@@ -106,7 +106,7 @@ if __name__ == '__main__':
         '--batch-size',
         dest='batch_size',
         type=int,
-        default=10,
+        default=100,
         help='Number of sentences per training update. (DEFAULT=10)',
     )
     parser.add_argument(
