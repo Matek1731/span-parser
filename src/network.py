@@ -177,7 +177,7 @@ class Network(object):
 
 
         self.struct_hidden_W = self.model.add_parameters(
-            (hidden_units, 4 * struct_spans * lstm_units),
+            (hidden_units, 1 * struct_spans * lstm_units),
             dynet.UniformInitializer(0.01),
         )
         self.struct_hidden_b = self.model.add_parameters(
@@ -194,7 +194,7 @@ class Network(object):
         )
 
         self.label_hidden_W = self.model.add_parameters(
-            (hidden_units, 4 * label_spans * lstm_units),
+            (hidden_units, 1 * label_spans * lstm_units),
             dynet.UniformInitializer(0.01),
         )
         self.label_hidden_b = self.model.add_parameters(
@@ -446,7 +446,7 @@ class Network(object):
             num_batches,
             batch_size,
         ))
-        parse_every = -(-num_batches // 4)
+        parse_every = -(-num_batches // 1)
 
         dev_trees = phrase_tree.PhraseTree.load_treefile(dev_data_file)
         print('Loaded {} validation trees!'.format(len(dev_trees)))
