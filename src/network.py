@@ -138,7 +138,7 @@ class Network(object):
         struct_out,
         label_out,
         droprate=0,
-        struct_spans=1,
+        struct_spans=4,
         label_spans=3,
     ):
 
@@ -177,7 +177,7 @@ class Network(object):
 
 
         self.struct_hidden_W = self.model.add_parameters(
-            (hidden_units, 4 * struct_spans * lstm_units),
+            (hidden_units, 1 * struct_spans * lstm_units),
             dynet.UniformInitializer(0.01),
         )
         self.struct_hidden_b = self.model.add_parameters(
@@ -194,7 +194,7 @@ class Network(object):
         )
 
         self.label_hidden_W = self.model.add_parameters(
-            (hidden_units, 4 * label_spans * lstm_units),
+            (hidden_units, 1 * label_spans * lstm_units),
             dynet.UniformInitializer(0.01),
         )
         self.label_hidden_b = self.model.add_parameters(
